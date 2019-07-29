@@ -11,24 +11,22 @@ class Boat < ActiveRecord::Base
     where("length < 20")
   end
 
-  def self::ship
+  def self.ship
     where("length >= 20")
   end
 
   def self.last_three_alphabetically
-
+     all.order(name: :desc).limit(3)
   end
 
   def self.without_a_captain
-
+    where(captain_id: nil)
   end
   def self.sailboats
 
   end
 
   def self.with_three_classifications
-
-  end 
 
   end
 
